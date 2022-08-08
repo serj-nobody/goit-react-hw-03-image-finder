@@ -56,8 +56,8 @@ export class App extends Component {
 
   ScrollToBottom = () => {
     window.scrollTo({
-      // top: document.documentElement.scrollHeight,
-      top: 0,
+      top: document.documentElement.scrollHeight,
+      // top: 0,
       behavior: "smooth",
     });
   };
