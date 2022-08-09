@@ -36,12 +36,12 @@ export class App extends Component {
   };
 
   async getSearchResults() {
-    const { searchQuery, page, images } = this.state;
+    const { searchQuery, page } = this.state;
     this.setState({ status: 'pending' });
 
     try {
       const nextImages = await fetchImages(searchQuery, page);
-      this.setState({ images: [...images, ...nextImages] });
+      this.setState(prevState => ({ images: [...prevState.images, ...nextImages] }));
       this.setState({ status: 'resolved' });
       this.ScrollToBottom();
     }
